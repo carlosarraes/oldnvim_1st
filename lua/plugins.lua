@@ -12,6 +12,8 @@ packer.startup(function(use)
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
+  use 'kyazdani42/nvim-web-devicons' -- File icons
+  use({ "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" })
   use 'hoob3rt/lualine.nvim' -- Statusline
   use 'onsails/lspkind-nvim' -- Vscode like pictograms
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
