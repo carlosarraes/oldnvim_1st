@@ -2,6 +2,9 @@ local status, cmp = pcall(require, "cmp")
 if (not status) then return end
 local lspkind = require 'lspkind'
 
+require('luasnip/loaders/from_vscode').lazy_load()
+require('luasnip/loaders/from_vscode').lazy_load({ paths = '~/.config/nvim/snippets' })
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -19,7 +22,9 @@ cmp.setup({
     }),
   }),
   sources = cmp.config.sources({
+    { name = 'luasnip ' },
     { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
     { name = 'buffer' },
   }),
   formatting = {
@@ -31,4 +36,3 @@ vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
-
